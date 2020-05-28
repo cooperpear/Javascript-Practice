@@ -51,3 +51,15 @@ LinkedList.prototype.search = function(searchValue){
         return null;
 };
 
+var ll = new LinkedList();
+
+ll.addToHead(123);
+ll.addToHead(70);
+ll.addToHead('hello');
+ll.addToTail(19);
+ll.addToTail('world');
+ll.addToTail(20);
+
+console.log(ll.search(70));
+console.log(ll.search(10));
+
