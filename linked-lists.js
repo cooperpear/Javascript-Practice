@@ -16,13 +16,6 @@ LinkedList.prototype.addToHead = function (value) {
     this.head = newNode;
 };
 
-var ll = new LinkedList();
-
-ll.addToHead(100);
-ll.addToHead(200);
-ll.addToHead(300);
-
-console.log(ll);
 
 LinkedList.prototype.addToTail = function (value) {
     var newNode = new Node(value, null, this.tail);
@@ -30,14 +23,23 @@ LinkedList.prototype.addToTail = function (value) {
     else this.head = newNode;
     this.tail = newNode;
 };
-var myLL = new LinkedList();
 
-myLL.addToTail(10);
-myLL.addToTail(20);
-myLL.addToTail(30);
-myLL.addToHead(100);
+LinkedList.prototype.removeHead = function (value) {
+    if (!this.head) return null;
+    var val = this.head.value;
+    this.head = this.head.next;
+    if (this.head) this.head.prev = null;
+    else this.tail = null;
+    return val;
+};
 
-console.log(myLL);
-console.log(myLL.tail.prev);
-console.log(myLL.tail.prev.prev);
-console.log(myLL.tail.prev.prev.prev);
+var ll = new LinkedList();
+
+ll.addToHead(1000);
+ll.addToHead(2000);
+ll.addToTail(3000);
+
+ll.removeHead();
+
+console.log(ll.removeHead());
+
