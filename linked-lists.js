@@ -24,7 +24,7 @@ LinkedList.prototype.addToTail = function (value) {
     this.tail = newNode;
 };
 
-LinkedList.prototype.removeHead = function (value) {
+LinkedList.prototype.removeHead = function () {
     if (!this.head) return null;
     var val = this.head.value;
     this.head = this.head.next;
@@ -33,13 +33,12 @@ LinkedList.prototype.removeHead = function (value) {
     return val;
 };
 
-var ll = new LinkedList();
-
-ll.addToHead(1000);
-ll.addToHead(2000);
-ll.addToTail(3000);
-
-ll.removeHead();
-
-console.log(ll.removeHead());
+LinkedList.prototype.removeTail = function () {
+    if(!this.tail) return null;
+    var val = this.tail.value;
+    this.tail = this.tail.prev;
+    if(this.tail) this.tail.next = null;
+    else this.head = null;
+    return val; 
+};
 
