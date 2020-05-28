@@ -56,7 +56,7 @@ LinkedList.prototype.indexOf = function(value){
     var currentIndex = 0;
     var currentNode = this.head;
     while(currentNode) {
-        if(currentNode.value === value)
+        if(currentNode.value === value){
         indexes.push(currentIndex);
     }
         currentNode = currentNode.next;
@@ -65,3 +65,13 @@ LinkedList.prototype.indexOf = function(value){
     return indexes;
 };
 
+var myLL = new LinkedList();
+
+myLL.addToTail(1);
+myLL.addToTail(5);
+myLL.addToTail(3);
+myLL.addToTail(5);
+myLL.addToTail(8);
+myLL.addToTail(7);
+myLL.addToTail(5);
+console.log(myLL.indexOf(5));
