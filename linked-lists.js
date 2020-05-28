@@ -51,15 +51,17 @@ LinkedList.prototype.search = function(searchValue){
         return null;
 };
 
-var ll = new LinkedList();
-
-ll.addToHead(123);
-ll.addToHead(70);
-ll.addToHead('hello');
-ll.addToTail(19);
-ll.addToTail('world');
-ll.addToTail(20);
-
-console.log(ll.search(70));
-console.log(ll.search(10));
+LinkedList.prototype.indexOf = function(value){
+    var indexes = [];
+    var currentIndex = 0;
+    var currentNode = this.head;
+    while(currentNode) {
+        if(currentNode.value === value)
+        indexes.push(currentIndex);
+    }
+        currentNode = currentNode.next;
+        currentIndex++;
+    }
+    return indexes;
+};
 
