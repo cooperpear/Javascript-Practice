@@ -9,3 +9,11 @@ function factorial(num) {
 };
 
 factorial(4);
+
+//constructor for binary search tree
+
+function BST(value){
+    this.value = value;
+    this.left = null;
+    this.right = null;
+}
