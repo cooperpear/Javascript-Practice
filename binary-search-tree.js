@@ -76,9 +76,10 @@ BST.prototype.getMinVal = function () {
 
 //get max value
 BST.prototype.getMaxVal = function () {
-    if (this.right) return this.right.getMinVal();
+    if (this.right) return this.right.getMaxVal();
     else return this.value;
 };
+
 //Create and insert values
 var bst = new BST(50);
 bst.insert(30);
@@ -98,5 +99,8 @@ bst.depthFirstTraversal(log, 'post-order');
 function log(node) {
     console.log(node.value);
 };
+
+console.log('MIN: ', bst.getMinVal());
+console.log('MAX: ', bst.getMaxVal());
 
 bst.breadthFirstTraversal(log);
