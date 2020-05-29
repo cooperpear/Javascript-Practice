@@ -52,23 +52,24 @@ BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
     if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);
     if (order === 'in-order') iteratorFunc(this.value);
     if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);
+    if (order === 'post-order') iteratorFunc(this.value);
 };
 
 //Create and insert values
 var bst = new BST(50);
 bst.insert(30);
 bst.insert(70);
+bst.insert(100);
+bst.insert(60);
+bst.insert(59);
 bst.insert(20);
-bst.insert(10);
 bst.insert(45);
 bst.insert(35);
-bst.insert(105);
-bst.insert(60);
-bst.insert(100);
 bst.insert(85);
-bst.insert(59);
+bst.insert(105);
+bst.insert(10);
 
-bst.depthFirstTraversal(log, 'in-order');
+bst.depthFirstTraversal(log, 'post-order');
 
 function log(value) {
     console.log(value);
