@@ -35,14 +35,22 @@ BST.prototype.insert = function (value) {
 
 BST.prototype.contains = function (value) {
     if (value === this.value) return true;
-    else if (value < this.value){
+    else if (value < this.value) {
         if (!this.left) return false;
         else return this.left.contains(value)
     }
-    else if (value > this.value){
+    else if (value > this.value) {
         if (!this.right) return false;
         else return this.right.contains(value)
     }
+};
+
+//depth first traversel method with recursion
+
+BST.prototype.depthFirstTraversal = function (iteratorFunc) {
+    if (this.left) this.left.depthFirstTraversal(iteratorFunc);
+    iteratorFunc(this.value);
+    if (this.right) this.right.depthFirstTraversal(iteratorFunc);
 };
 
 //Create and insert values
