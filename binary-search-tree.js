@@ -47,10 +47,10 @@ BST.prototype.contains = function (value) {
 
 //depth first traversel method with recursion
 
-BST.prototype.depthFirstTraversal = function (iteratorFunc) {
-    if (this.left) this.left.depthFirstTraversal(iteratorFunc);
-    iteratorFunc(this.value);
-    if (this.right) this.right.depthFirstTraversal(iteratorFunc);
+BST.prototype.depthFirstTraversal = function (iteratorFunc, order) {
+    if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);
+    if (order === 'in-order') iteratorFunc(this.value);
+    if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);
 };
 
 //Create and insert values
@@ -67,6 +67,8 @@ bst.insert(100);
 bst.insert(85);
 bst.insert(59);
 
-console.log(bst.contains(59));
+bst.depthFirstTraversal(log, 'in-order');
 
-console.log(bst.left.right.left);
+function log(value) {
+    console.log(value);
+};
