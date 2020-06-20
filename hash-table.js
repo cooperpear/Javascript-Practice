@@ -9,6 +9,13 @@ function HashNode(key, value, next) {
     this.next = next || null;
 }
 
+HashTable.prototype.hash = function (key) {
+    var total = 0;
+    for (var i = 0; i < key.length; i++) {
+        total += key.charCodeAt(i);
+    }
+};
+
 var myHT = new HashTable(30);
 
 console.log(myHT);
